@@ -29,16 +29,30 @@ public class Tamagotchi {
     return mActivityLevel;
   }
 
-  public int timePasses() {
-    return mFoodLevel -=3;
-    return mSleepLevel -=2;
-    return mActivityLevel -=1;
+  public int feed() {
+    return mFoodLevel +=1;
   }
 
+  public int sleep() {
+    return (mSleepLevel +=1);
+  }
 
+  public int play() {
+    return (mActivityLevel +=1);
+  }
 
-  // public int costToShip() {
-  //   return (this.getVolume() + this.getDistanceCost()) /2;
-  //
-  // }
+  public void timePasses() {
+  mFoodLevel -=2;
+  mSleepLevel -=2;
+  mActivityLevel -=1;
+
+  }
+
+  public boolean isAlive() {
+    if (mFoodLevel >0 && mSleepLevel >0 && mActivityLevel >0){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }

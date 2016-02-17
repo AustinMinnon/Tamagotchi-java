@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import org.fluentlenium.adapter.FluentTest;
 import org.junit.ClassRule;
 import org.junit.Test;
@@ -20,20 +22,17 @@ public class AppTest extends FluentTest {
   @Test
   public void rootTest() {
       goTo("http://localhost:4567/");
-      assertThat(pageSource()).contains("Parcel Cost Calculator");
+      assertThat(pageSource()).contains("Tamagotchi App");
   }
 
-  // @Test
-  // public void testShip() {
-  //   goTo("http://localhost:4567/");
-  //   fill("#length").with("5");
-  //   fill("#width").with("5");
-  //   fill("#height").with("5");
-  //   fill("#distance").with("5");
-  //   submit(".btn");
-  //   assertThat(pageSource()).contains("Your height is: 5");
-  // }
-  //
+  @Test
+  public void testTamagotchi() {
+    goTo("http://localhost:4567/");
+    fill("#name").with("lil pet");
+    submit(".btn");
+    assertThat(pageSource()).contains("Your pet name is:");
+  }
+
   // @Test
   // public void testShipPrice() {
   //   goTo("http://localhost:4567/");
